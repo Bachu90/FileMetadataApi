@@ -21,13 +21,11 @@ app.get('/hello', function (req, res) {
 });
 
 app.post('/api/fileanalyse', upload.single('upfile'), function (req, res, next) {
-  console.log(req.file);
   res.json({
     name: req.file.originalname,
     type: req.file.mimetype,
     size: req.file.size
   })
-  // req.body will hold the text fields, if there were any
 })
 
 app.listen(process.env.PORT || 3000, function () {
